@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkt Premium - Oferta Specjalna</title>
+    <style>
+        /* CSS - Stylistyka strony */
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #2f3542;
+            --bg-color: #ffffff;
+            --text-color: #2f3542;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Górny pasek zniżki */
+        .promo-bar {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        /* Główny kontener */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            flex: 1;
+        }
+
+        /* Sekcja zdjęcia */
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.02);
+        }
+
+        .product-image img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Sekcja opisu */
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #57606f;
+        }
+
+        /* Przycisk KUP TERAZ */
+        .buy-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .buy-button:hover {
+            background-color: #ff6b81;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.6);
+        }
+
+        /* Efekt podświetlenia (glow) dla przycisku */
+        .buy-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        .buy-button:hover::after {
+            left: 120%;
+        }
+
+        /* Dolny pasek (Footer) */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ced4da;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Animacje */
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="promo-bar">
+        🔥 Zniżka -25% na cały asortyment! 🔥
+    </div>
+
+    <main class="container">
+        <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Produkt Premium">
+        </div>
+
+        <div class="product-info">
+            <h1>Smart Watch Ultra Gen 5</h1>
+            <p class="product-description">
+                Odkryj nową definicję elegancji połączonej z najnowocześniejszą technologią. Nasz produkt został zaprojektowany z myślą o najbardziej wymagających użytkownikach, którzy cenią sobie precyzję wykonania oraz niezawodność w każdych warunkach. Wykonany z najwyższej jakości materiałów, zapewnia nie tylko niesamowity wygląd, ale również trwałość na lata. To idealne rozwiązanie dla osób poszukujących innowacji, które ułatwiają codzienne życie i podkreślają indywidualny styl. Nie czekaj, dołącz do grona zadowolonych klientów już dziś!
+            </p>
+            <button class="buy-button" id="buyBtn">KUP TERAZ</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="links">
+            <a href="#">Regulamin</a> |
+            <a href="#">Polityka prywatności</a> |
+            <a href="#">Zwroty</a>
+        </div>
+        <p>&copy; 2026 Twój Sklep. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        document.getElementById('buyBtn').addEventListener('click', function() {
+            alert('Dziękujemy za zainteresowanie! Funkcja zakupu zostanie dodana wkrótce.');
+            
+            // Prosta animacja kliknięcia
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-3px)';
+            }, 100);
+        });
+
+        // Subtelna animacja wejścia elementów przy ładowaniu
+        window.onload = () => {
+            const info = document.querySelector('.product-info');
+            const img = document.querySelector('.product-image');
+            
+            info.style.opacity = '0';
+            info.style.transition = 'opacity 1s ease-in, transform 1s ease-out';
+            info.style.transform = 'translateX(20px)';
+            
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 1s ease-in, transform 1s ease-out';
+            img.style.transform = 'translateX(-20px)';
+
+            setTimeout(() => {
+                info.style.opacity = '1';
+                info.style.transform = 'translateX(0)';
+                img.style.opacity = '1';
+                img.style.transform = 'translateX(0)';
+            }, 100);
+        };
+    </script>
+</body>
+  </html>
+  
